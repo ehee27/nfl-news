@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function NavBar() {
   return (
-    <header className="flex py-6 shadow-lg fixed top-0 w-full z-10 bg-background/95">
+    <header className="flex py-6 shadow-lg fixed w-full z-10 bg-background/95 h-20">
       <nav className="flex items-center gap-10 container font-semibold text-black">
         <Link
           href="/"

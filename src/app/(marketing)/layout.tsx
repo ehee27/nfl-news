@@ -5,7 +5,6 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
     <div>
       <NavBar />
-
       {children}
     </div>
   );
