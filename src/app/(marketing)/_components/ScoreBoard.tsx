@@ -12,15 +12,14 @@ import {
 import { useEffect, useState } from "react";
 
 export default function ScoreBoard() {
-  const [scoresData, setScoresData] = useState(null);
+  const [scoresData, setScoresData] = useState([]);
 
-  //
   useEffect(() => {
     fetch("https://5fgc91fn5b.execute-api.us-west-2.amazonaws.com/get-scores")
       .then((res) => res.json())
       .then((res) => setScoresData(JSON.parse(res)));
   }, []);
-  console.log("This", scoresData);
+
   return (
     <div className="flex gap-1">
       {scoresData?.map((item, i) => (
@@ -36,24 +35,26 @@ function BoxScoreCard({ box }) {
       {/* <p>{box?.time}</p> */}
       <p className="text-xs text-left mx-3">{new Date().toLocaleString()}</p>
 
-      <div className="flex justify-between items-center gap-2 p-1">
-        <div className="flex justify-center items-center text-sm">
-          <Image src={ninja} alt="away logo" height={30} width={30} />
+      <div className="flex justify-between items-center">
+        <div className="flex gap-2 px-3 justify-center items-center text-xs">
+          <Image src={ninja} alt="logo" height={30} width={30} />
           <p>{box?.away.awayTeam}</p>
         </div>
-        <div className="mr-2 text-sm">{box?.away.awayScore}</div>
+        <div className="mr-3 text-xs">{box?.away.awayScore}</div>
       </div>
 
-      <div className="flex justify-between items-center gap-2 p-1">
-        <div className="flex justify-center items-center text-sm">
-          <Image src={ninja} alt="home logo" height={30} width={30} />
+      <div className="flex justify-between items-center">
+        <div className="flex gap-2 px-3 justify-center items-center text-xs">
+          <Image src={ninja} alt="logo" height={30} width={30} />
+
           <p>{box?.home.homeTeam}</p>
         </div>
-        <div className="mr-2 text-sm">{box?.home.homeScore}</div>
+        <div className="mr-3 text-xs">{box?.home.homeScore}</div>
       </div>
     </div>
 
     // <Card>
+
     //   <CardHeader>
     //     <CardTitle>{box?.time}</CardTitle>
     //     <CardDescription>
