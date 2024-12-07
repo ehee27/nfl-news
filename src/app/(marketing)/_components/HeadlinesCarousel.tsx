@@ -27,7 +27,7 @@ export function HeadlinesCarousel() {
       .then((res) => setheadlinesData(JSON.parse(res)));
   }, []);
   return (
-    <Carousel className="w-[90%] shadow-md bg-white rounded-lg p-3">
+    <Carousel className="bg-white rounded-lg p-3 font-serif">
       <CarouselContent>
         {headlinesData?.map((headline: any, i: any) => (
           <CarouselItem key={i}>
@@ -37,7 +37,7 @@ export function HeadlinesCarousel() {
                   <img
                     src={headline?.pic}
                     height="100px"
-                    className="rounded-t-lg border-b-4 border-red-600"
+                    className="rounded-t-lg border-b-8 border-red-600"
                   ></img>
 
                   <CardDescription>

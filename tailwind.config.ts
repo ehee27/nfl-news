@@ -21,8 +21,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
-        mono: ["var(--font-geist-mono)", ...fontFamily.mono],
+        sans: ["Jaro"],
+        serif: ["Roboto"],
+        // sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        // mono: ["var(--font-geist-mono)", ...fontFamily.mono],
       },
       borderRadius: {
         lg: "var(--radius)",
