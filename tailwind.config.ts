@@ -21,8 +21,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Jaro"],
-        serif: ["Roboto"],
+        sans: ["Inter"],
+        serif: ["Stalinist One"],
         // sans: ["var(--font-geist-sans)", ...fontFamily.sans],
         // mono: ["var(--font-geist-mono)", ...fontFamily.mono],
       },

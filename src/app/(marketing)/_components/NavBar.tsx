@@ -18,7 +18,7 @@ export function NavBar() {
               </Link>
             </div>
           </div>
-          <nav className="flex justify-center items-center gap-10 container font-semibold text-white w-[50%] font-serif">
+          <nav className="flex justify-center items-center gap-10 container font-semibold text-white w-[50%]">
             {" "}
             <Link href="/" className="text-lg">
               Headlines

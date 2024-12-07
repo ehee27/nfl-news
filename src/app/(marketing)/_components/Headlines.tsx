@@ -18,20 +18,20 @@ export default function Headlines() {
   //   console.log("This", headlinesData);
 
   return (
-    <>
+    <div>
       {headlinesData?.map((headline: any, i: any) => (
         <HeadlinesCard key={i} headline={headline} />
       ))}
-    </>
+    </div>
   );
 }
 
 function HeadlinesCard({ headline }) {
   return (
-    <div className="bg-white font-serif p-1">
+    <div className="bg-white p-1 text-sm font-medium text-zinc-500">
       <Link href={headline?.link} target="_blank">
         <div className="p-2 border-2 border-zinc-100 rounded-md hover:shadow-inner hover:shadow-zinc-400 transition-all">
-          <p className="text-left text-md">{headline?.title}</p>
+          <p className="text-left">{headline?.title}</p>
         </div>
       </Link>
     </div>

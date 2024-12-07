@@ -16,7 +16,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export function HeadlinesCarousel() {
+export default function HeadlinesCarousel() {
   const [headlinesData, setheadlinesData] = useState(null);
   //
   useEffect(() => {
@@ -27,7 +27,7 @@ export function HeadlinesCarousel() {
       .then((res) => setheadlinesData(JSON.parse(res)));
   }, []);
   return (
-    <Carousel className="bg-white rounded-lg p-3 font-serif">
+    <Carousel className="bg-white text-zinc-400">
       <CarouselContent>
         {headlinesData?.map((headline: any, i: any) => (
           <CarouselItem key={i}>
@@ -37,11 +37,14 @@ export function HeadlinesCarousel() {
                   <img
                     src={headline?.pic}
                     height="100px"
-                    className="rounded-t-lg border-b-8 border-red-600"
+                    // className="rounded-t-lg border-b-8 border-red-600"
+                    className="rounded-t-lg"
                   ></img>
 
                   <CardDescription>
-                    <CardTitle className="mt-5">{headline?.title}</CardTitle>
+                    <CardTitle className="mt-5 pr-10">
+                      {headline?.title}
+                    </CardTitle>
                   </CardDescription>
                 </CardHeader>
               </Card>

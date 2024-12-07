@@ -1,7 +1,5 @@
 "use client";
-import ninja from "/public/pngTree-NinjaLogo.png";
 
-import Image from "next/image";
 import {
   Card,
   CardDescription,
@@ -21,7 +19,7 @@ export default function ScoreBoard() {
   }, []);
 
   return (
-    <div className="flex justify-center gap-1">
+    <div className="flex justify-center gap-1 h-[100px]">
       {scoresData?.map((item, i) => (
         <BoxScoreCard key={i} box={item} />
       ))}
@@ -33,61 +31,42 @@ function BoxScoreCard({ box }) {
   // console.log("This is the box", box);
   const awayImage = box?.away?.awayLogo;
   const homeImage = box?.home?.homeLogo;
+  const awayScore = box?.away.awayScore;
+  const homeScore = box?.home.homeScore;
 
   //
   return (
-    <div className="bg-white rounded-md p-3 font-serif w-[250px]">
+    <div className="bg-white rounded-md p-3 w-[210px]">
       <p className="text-sm text-zinc-400 font-medium">{box?.time}</p>
       <div className="flex gap-2 items-center my-1">
-        {/* <Image
-          loader={() => awayImage}
-          src={awayImage}
-          alt="logo"
-          height={20}
-          width={20}
-        /> */}
-        <p className="text-md font-black text-zinc-500">{box?.away.awayTeam}</p>
-        <p className="text-sm font-black text-zinc-500">
-          {box?.away.awayScore}
-        </p>
+        {/* ------------------ Away line ------------------------- */}
+        <img src={awayImage} alt="team logo" height={20} width={20}></img>
+        <div
+          className={`flex gap-2 text-sm font-black text-zinc-500 ${
+            !awayScore.includes("-") && awayScore > homeScore
+              ? "text-orange-600"
+              : "text-zinc-400"
+          }`}
+        >
+          <p>{box?.away.awayTeam}</p>
+          <p>{awayScore}</p>
+        </div>
       </div>
-      <div className="flex gap-2 items-center my-1">
-        {/* <Image
-          loader={() => homeImage}
-          src={homeImage}
-          alt="logo"
-          height={20}
-          width={20}
-        /> */}
-        <p className="text-md font-black text-zinc-500">{box?.home.homeTeam}</p>
-        <p className="text-sm font-black text-zinc-500">
-          {box?.home.homeScore}
-        </p>
+      {/* ------------------ Home line ------------------------- */}
+      <div className="flex gap-2 items-center my-1 ">
+        <img src={homeImage} alt="team logo" height={20} width={20}></img>
+        <div
+          className={`flex gap-2 text-sm font-black text-zinc-500 ${
+            !homeScore.includes("-") && homeScore > awayScore
+              ? "text-orange-600"
+              : "text-zinc-400"
+          }`}
+        >
+          <p>{box?.home.homeTeam}</p>
+          <p>{homeScore}</p>
+        </div>
       </div>
     </div>
-    // <div className="flex flex-col py-2 rounded shadow-md bg-white font">
-    //   {/* <p>{box?.time}</p> */}
-    //   {/* ---------------- DATE ---------------- */}
-    //   <div className="border-2">
-    //     <p className="text-xs text-left mx-3">{new Date().toLocaleString()}</p>
-    //   </div>
-    //   <div className="flex justify-start items-center">
-    //     {/* ---------------- AWAY ---------------- */}
-    //     <Image src={ninja} alt="logo" height={30} width={30} />
-    //     <p>{box?.away.awayTeam}</p>
-    //     <div className="mr-3 text-xs">{box?.away.awayScore}</div>
-    //   </div>
-
-    //   <div className="flex justify-between items-center">
-    //     {/* <div className="flex gap-2 px-3 justify-center items-center text-xs"> */}
-    //     {/* ---------------- HOME ---------------- */}
-    //     <Image src={ninja} alt="logo" height={30} width={30} />
-
-    //     <p>{box?.home.homeTeam}</p>
-    //     {/* </div> */}
-    //     <div className="mr-3 text-xs">{box?.home.homeScore}</div>
-    //   </div>
-    // </div>
 
     // <Card>
 

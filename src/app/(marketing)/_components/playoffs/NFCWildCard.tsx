@@ -15,36 +15,38 @@ export default function NFCWildCard() {
   const nfcWildCard = playoffWildCard.slice(3);
 
   return (
-    <div className="rounded-lg font-serif text-sm">
+    <div className="rounded-lg text-sm">
       {nfcWildCard?.map((item, i) => (
+        // <div
+        //   key={i}
+        //   className="flex rounded-lg py-2 px-5 mt-2 shadow-md shadow-zinc-300 bg-gradient-to-r from-zinc-400 via-stone-300 to-zinc-400 text-white"
+        // >
         <div
           key={i}
-          className="flex rounded-lg py-2 px-5 mt-2 shadow-md shadow-zinc-300 bg-gradient-to-r from-zinc-200 via-stone-300 to-zinc-200 text-zinc-700"
+          className="flex rounded-lg py-3 px-5 mt-2 shadow-md shadow-zinc-400 font-semibold text-zinc-600"
         >
-          <div className="flex items-center gap-2 w-[40%]">
+          <div className="flex items-center gap-2 w-[45%]">
             <div className="flex items-center">
               <img
                 src={item.wildCard1AwayLogo}
                 alt="bye logo"
-                height={50}
-                width={50}
+                height={40}
+                width={40}
               ></img>
             </div>
-            <div className="flex flex-col font-bold text-zinc-500">
-              <p>{item.wildCard1AwaySeed}</p>
-              <p className="font-bold font-sans text-lg text-zinc-500">
-                {item.wildCard1AwayTeam}
-              </p>
+            <div className="flex flex-col font-bold">
+              <p className="text-xs">{item.wildCard1AwaySeed}</p>
+              <p className="font-black">{item.wildCard1AwayTeam}</p>
               <p>Proj: {item.wildCard1AwayRecord}</p>
             </div>
           </div>
-          <div className="flex justify-center items-center w-[20%]">
-            <p className="text-zinc-400 text-lg font-bold">@</p>
+          <div className="flex justify-center items-center w-[10%]">
+            <p className="text-zinc-300 text-lg font-bold">@</p>
           </div>
-          <div className="flex justify-end items-center gap-2 w-[40%]">
-            <div className="flex flex-col font-bold text-zinc-500 text-right">
+          <div className="flex justify-end items-center gap-2 w-[45%]">
+            <div className="flex flex-col font-bold text-right">
               <p>{item.wildCard1HomeSeed}</p>
-              <p className="font-bold font-sans text-lg text-zinc-500">
+              <p className="font-black font-sans text-sm">
                 {item.wildCard1HomeTeam}
               </p>
               <p>Proj: {item.wildCard1HomeRecord}</p>
@@ -53,8 +55,8 @@ export default function NFCWildCard() {
               <img
                 src={item.wildCard1HomeLogo}
                 alt="bye logo"
-                height={50}
-                width={50}
+                height={40}
+                width={40}
               ></img>
             </div>
           </div>
