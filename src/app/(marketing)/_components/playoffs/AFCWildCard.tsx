@@ -23,7 +23,7 @@ export default function AFCWildCard() {
         // >
         <div
           key={i}
-          className="flex rounded-lg py-3 px-5 mt-2 shadow-md shadow-zinc-400 font-semibold text-zinc-600 bg-white"
+          className="flex rounded-lg py-3 px-5 mt-2 shadow-md shadow-black font-semibold text-white bg-black/80"
         >
           <div className="flex items-center gap-2 w-[45%]">
             <div className="flex items-center">

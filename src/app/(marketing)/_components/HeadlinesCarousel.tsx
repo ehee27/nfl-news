@@ -27,7 +27,7 @@ export default function HeadlinesCarousel() {
       .then((res) => setheadlinesData(JSON.parse(res)));
   }, []);
   return (
-    <Carousel className="bg-white text-zinc-400">
+    <Carousel className="text-white">
       <CarouselContent>
         {headlinesData?.map((headline: any, i: any) => (
           <CarouselItem key={i}>
@@ -37,14 +37,15 @@ export default function HeadlinesCarousel() {
                   <img
                     src={headline?.pic}
                     height="100px"
-                    // className="rounded-t-lg border-b-8 border-red-600"
-                    className="rounded-t-lg"
+                    className="rounded-xl"
                   ></img>
 
                   <CardDescription>
-                    <CardTitle className="mt-5 pr-10">
-                      {headline?.title}
-                    </CardTitle>
+                    <div className="py-5">
+                      <CardTitle className="w-[60%]">
+                        {headline?.title}
+                      </CardTitle>
+                    </div>
                   </CardDescription>
                 </CardHeader>
               </Card>

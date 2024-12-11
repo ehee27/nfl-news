@@ -28,9 +28,9 @@ export default function Headlines() {
 
 function HeadlinesCard({ headline }) {
   return (
-    <div className="bg-white p-1 text-sm font-medium text-zinc-500">
+    <div className="p-1 text-sm font-medium text-white">
       <Link href={headline?.link} target="_blank">
-        <div className="p-2 border-2 border-zinc-100 rounded-md hover:shadow-inner hover:shadow-zinc-400 transition-all">
+        <div className="py-3 px-4 border-2 bg-black/60 border-zinc-600 rounded-xl hover:shadow-inner hover:bg-white hover:text-zinc-500 transition-all">
           <p className="text-left">{headline?.title}</p>
         </div>
       </Link>

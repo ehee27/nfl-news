@@ -19,7 +19,7 @@ export default function ScoreBoard() {
   }, []);
 
   return (
-    <div className="flex justify-center gap-1 h-[100px]">
+    <div className="flex justify-center items-center gap-2 h-[80px]">
       {scoresData?.map((item, i) => (
         <BoxScoreCard key={i} box={item} />
       ))}
@@ -36,13 +36,14 @@ function BoxScoreCard({ box }) {
 
   //
   return (
-    <div className="bg-white rounded-md p-3 w-[210px]">
+    // <div className="bg-white rounded-md p-3 w-[210px]">
+    <div className="bg-black/40 rounded-xl p-3 w-[210px] shadow-md shadow-black">
       <p className="text-sm text-zinc-400 font-medium">{box?.time}</p>
       <div className="flex gap-2 items-center my-1">
         {/* ------------------ Away line ------------------------- */}
         <img src={awayImage} alt="team logo" height={20} width={20}></img>
         <div
-          className={`flex gap-2 text-sm font-black text-zinc-500 ${
+          className={`flex gap-2 text-sm font-black text-white ${
             !awayScore.includes("-") && awayScore > homeScore
               ? "text-orange-600"
               : "text-zinc-400"
@@ -56,7 +57,7 @@ function BoxScoreCard({ box }) {
       <div className="flex gap-2 items-center my-1 ">
         <img src={homeImage} alt="team logo" height={20} width={20}></img>
         <div
-          className={`flex gap-2 text-sm font-black text-zinc-500 ${
+          className={`flex gap-2 text-sm font-black text-white ${
             !homeScore.includes("-") && homeScore > awayScore
               ? "text-orange-600"
               : "text-zinc-400"
@@ -67,28 +68,5 @@ function BoxScoreCard({ box }) {
         </div>
       </div>
     </div>
-
-    // <Card>
-
-    //   <CardHeader>
-    //     <CardTitle>{box?.time}</CardTitle>
-    //     <CardDescription>
-    //       <div className="flex gap-2 text-black">
-    //         <Image src={ninja} alt="away logo" height={30} width={30} />
-    //         <p className="text-black">
-    //           <span>{box?.away.awayTeam}</span>
-    //           <span>{box?.away.awayScore}</span>
-    //         </p>
-    //       </div>
-    //       <div className="flex gap-2">
-    //         <Image src={ninja} alt="home logo" height={30} width={30} />
-    //         <p>
-    //           <span>{box?.home.homeTeam}</span>
-    //           <span>{box?.home.homeScore}</span>
-    //         </p>
-    //       </div>
-    //     </CardDescription>
-    //   </CardHeader>
-    // </Card>
   );
 }

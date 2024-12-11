@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        superBowlImage: "url('/public/new_orleans.jpeg')",
+      },
       container: {
         center: "true",
         padding: "1.5rem",
