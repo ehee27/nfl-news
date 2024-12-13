@@ -1,6 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
 
+interface WildCardValues {
+  wildCard1AwayLogo: string;
+  wildCard1AwaySeed: string;
+  wildCard1AwayTeam: string;
+  wildCard1AwayRecord: string;
+  wildCard1HomeSeed: string;
+  wildCard1HomeTeam: string;
+  wildCard1HomeLogo: string;
+  wildCard1HomeRecord: string;
+}
+
 export default function AFCWildCard() {
   const [playoffWildCard, setPlayoffWildCard] = useState([]);
 
@@ -16,7 +27,7 @@ export default function AFCWildCard() {
 
   return (
     <div className="rounded-lg text-sm">
-      {afcWildCard?.map((item, i) => (
+      {afcWildCard?.map((item: WildCardValues, i) => (
         // <div
         //   key={i}
         //   className="flex rounded-lg py-2 px-5 mt-2 shadow-md shadow-zinc-300 bg-gradient-to-r from-zinc-400 via-stone-300 to-zinc-400 text-white"

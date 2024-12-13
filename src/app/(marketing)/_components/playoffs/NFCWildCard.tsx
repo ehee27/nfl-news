@@ -1,6 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
 
+interface WildCardValues {
+  wildCard1AwayLogo: string;
+  wildCard1AwaySeed: string;
+  wildCard1AwayTeam: string;
+  wildCard1AwayRecord: string;
+  wildCard1HomeSeed: string;
+  wildCard1HomeTeam: string;
+  wildCard1HomeLogo: string;
+  wildCard1HomeRecord: string;
+}
+
 export default function NFCWildCard() {
   const [playoffWildCard, setPlayoffWildCard] = useState([]);
 
@@ -16,14 +27,14 @@ export default function NFCWildCard() {
 
   return (
     <div className="rounded-lg text-sm">
-      {nfcWildCard?.map((item, i) => (
+      {nfcWildCard?.map((item: WildCardValues, i) => (
         // <div
         //   key={i}
         //   className="flex rounded-lg py-2 px-5 mt-2 shadow-md shadow-zinc-300 bg-gradient-to-r from-zinc-400 via-stone-300 to-zinc-400 text-white"
         // >
         <div
           key={i}
-          className="flex rounded-lg py-3 px-5 mt-2 shadow-md shadow-zinc-400 font-semibold text-zinc-600"
+          className="flex rounded-lg py-3 px-5 mt-2 shadow-md shadow-black font-semibold text-white bg-black/80"
         >
           <div className="flex items-center gap-2 w-[45%]">
             <div className="flex items-center">

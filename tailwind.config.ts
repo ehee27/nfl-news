@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
   darkMode: ["class"],
@@ -14,7 +13,7 @@ export default {
         superBowlImage: "url('/public/new_orleans.jpeg')",
       },
       container: {
-        center: "true",
+        center: true,
         padding: "1.5rem",
         screens: {
           sm: "100%",

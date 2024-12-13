@@ -1,9 +1,14 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Key, useEffect, useState } from "react";
+
+interface HeadlineValues {
+  link: string;
+  pic: string;
+  title: string;
+}
 
 import {
   Card,
-  CardContent,
   CardHeader,
   CardTitle,
   CardDescription,
@@ -17,7 +22,7 @@ import {
 } from "@/components/ui/carousel";
 
 export default function HeadlinesCarousel() {
-  const [headlinesData, setheadlinesData] = useState(null);
+  const [headlinesData, setheadlinesData] = useState([]);
   //
   useEffect(() => {
     fetch(
@@ -29,29 +34,31 @@ export default function HeadlinesCarousel() {
   return (
     <Carousel className="text-white">
       <CarouselContent>
-        {headlinesData?.map((headline: any, i: any) => (
-          <CarouselItem key={i}>
-            <div className="p-1">
-              <Card>
-                <CardHeader>
-                  <img
-                    src={headline?.pic}
-                    height="100px"
-                    className="rounded-xl"
-                  ></img>
+        {headlinesData?.map(
+          (headline: HeadlineValues, i: Key | null | undefined) => (
+            <CarouselItem key={i}>
+              <div className="p-1">
+                <Card>
+                  <CardHeader>
+                    <img
+                      src={headline?.pic}
+                      height="100px"
+                      className="rounded-xl"
+                    ></img>
 
-                  <CardDescription>
-                    <div className="py-5">
-                      <CardTitle className="w-[60%]">
-                        {headline?.title}
-                      </CardTitle>
-                    </div>
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
+                    <CardDescription>
+                      <div className="py-5">
+                        <CardTitle className="w-[60%]">
+                          {headline?.title}
+                        </CardTitle>
+                      </div>
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </div>
+            </CarouselItem>
+          )
+        )}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />

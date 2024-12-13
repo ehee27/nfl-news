@@ -7,8 +7,19 @@ import trophy from "/public/trophy.png";
 import afcLogo from "/public/afc.svg.png";
 import nfcLogo from "/public/nfc.png";
 
+interface PlayoffItemValues {
+  afcByeLogo: string;
+  afcSeedLabel: string;
+  afcByeTeam: string;
+  afcByeRecord: string;
+  nfcByeLogo: string;
+  nfcSeedLabel: string;
+  nfcByeTeam: string;
+  nfcByeRecord: string;
+}
+
 export default function Playoffs() {
-  const [playoffBye, setPlayoffBye] = useState([]);
+  const [playoffBye, setPlayoffBye] = useState<Array<PlayoffItemValues>>([]);
 
   useEffect(() => {
     fetch(
@@ -17,6 +28,7 @@ export default function Playoffs() {
       .then((res) => res.json())
       .then((res) => setPlayoffBye(JSON.parse(res)));
   }, []);
+  console.log("Playoffs", playoffBye);
 
   return (
     <div className="rounded-xl bg-black/20 pb-10">
@@ -38,16 +50,16 @@ export default function Playoffs() {
             <div className="flex gap-2 w-[50%] pl-2">
               <div className="flex items-center">
                 <img
-                  src={playoffBye[0]?.afc.byeLogo}
+                  src={playoffBye[0]?.afcByeLogo}
                   alt="bye logo"
                   height={40}
                   width={40}
                 ></img>
               </div>
               <div className="flex flex-col">
-                <p className="text-xs">{playoffBye[0]?.afc.seedLabel}</p>
-                <p className="font-black">{playoffBye[0]?.afc.byeTeam}</p>
-                <p className="">Proj: {playoffBye[0]?.afc.byeRecord}</p>
+                <p className="text-xs">{playoffBye[0]?.afcSeedLabel}</p>
+                <p className="font-black">{playoffBye[0]?.afcByeTeam}</p>
+                <p className="">Proj: {playoffBye[0]?.afcByeRecord}</p>
               </div>
             </div>
             <div className="flex justify-center items-center w-[45%]">
@@ -69,23 +81,23 @@ export default function Playoffs() {
             <div className="flex gap-2 w-[50%] pl-2">
               <div className="flex items-center">
                 <img
-                  src={playoffBye[0]?.nfc.byeLogo}
+                  src={playoffBye[0]?.nfcByeLogo}
                   alt="bye logo"
                   height={40}
                   width={40}
                 ></img>
               </div>
               <div className="flex flex-col">
-                <p className="text-xs">{playoffBye[0]?.nfc.seedLabel}</p>
-                <p className="font-black">{playoffBye[0]?.nfc.byeTeam}</p>
-                <p className="">Proj: {playoffBye[0]?.nfc.byeRecord}</p>
+                <p className="text-xs">{playoffBye[0]?.nfcSeedLabel}</p>
+                <p className="font-black">{playoffBye[0]?.nfcByeTeam}</p>
+                <p className="">Proj: {playoffBye[0]?.nfcByeRecord}</p>
               </div>
             </div>
             <div className="flex justify-center items-center w-[45%]">
               <p className="text-xl text-zinc-400 font-black">BYE</p>
             </div>
           </div>
-          <AFCWildCard />
+          <NFCWildCard />
         </div>
       </div>
     </div>
