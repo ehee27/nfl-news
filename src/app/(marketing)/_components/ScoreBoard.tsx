@@ -20,7 +20,7 @@ export default function ScoreBoard() {
       .then((res) => res.json())
       .then((res) => setScoresData(JSON.parse(res)));
   }, []);
-  console.log("THIs", scoresData);
+  // console.log("THIs", scoresData);
 
   return (
     <div className="flex justify-center items-center gap-2 h-[80px]">

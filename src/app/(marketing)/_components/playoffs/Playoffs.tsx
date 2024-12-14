@@ -6,6 +6,7 @@ import Image from "next/image";
 import trophy from "/public/trophy.png";
 import afcLogo from "/public/afc.svg.png";
 import nfcLogo from "/public/nfc.png";
+import vercel from "/public/vercel.svg";
 
 interface PlayoffItemValues {
   afcByeLogo: string;
@@ -32,9 +33,6 @@ export default function Playoffs() {
 
   return (
     <div className="rounded-xl bg-black/20 pb-10">
-      {/* <p className="[text-shadow:_0_2px_3px_#4a4a4a] text-zinc-500 text-xl md:text-3xl leading-snug font-manrope font-extrabold">
-        PLAYOFF PREDICTOR
-      </p> */}
       <div className="py-3">
         <p className="text-green-600 text-xl md:text-3xl font-bold text-center font-serif">
           PLAYOFF PICTURE
@@ -49,12 +47,14 @@ export default function Playoffs() {
           <div className="flex gap-2 rounded-lg p-3 text-white shadow-md shadow-black font-semibold text-sm bg-black/40">
             <div className="flex gap-2 w-[50%] pl-2">
               <div className="flex items-center">
-                <img
-                  src={playoffBye[0]?.afcByeLogo}
+                <Image
+                  // src={playoffBye[0]?.afcByeLogo}
+                  src={playoffBye[0]?.afcByeLogo || vercel}
                   alt="bye logo"
                   height={40}
                   width={40}
-                ></img>
+                  style={{ width: "auto", height: "auto" }}
+                ></Image>
               </div>
               <div className="flex flex-col">
                 <p className="text-xs">{playoffBye[0]?.afcSeedLabel}</p>
@@ -70,7 +70,13 @@ export default function Playoffs() {
         </div>
         {/* ------------------------ TROPHY ------------------------- */}
         <div className="flex justify-center items-center">
-          <Image src={trophy} alt="ninja-logo" height={200} />
+          <Image
+            src={trophy}
+            alt="ninja-logo"
+            height={200}
+            width={200}
+            style={{ width: "auto", height: "auto" }}
+          />
         </div>
 
         {/* ------------------------ NFC ------------------------- */}
@@ -80,12 +86,14 @@ export default function Playoffs() {
           <div className="flex gap-2 rounded-lg p-3 text-white shadow-md shadow-black font-semibold text-sm bg-black/40">
             <div className="flex gap-2 w-[50%] pl-2">
               <div className="flex items-center">
-                <img
-                  src={playoffBye[0]?.nfcByeLogo}
+                <Image
+                  // src={playoffBye[0]?.nfcByeLogo}
+                  src={playoffBye[0]?.nfcByeLogo || vercel}
                   alt="bye logo"
                   height={40}
                   width={40}
-                ></img>
+                  style={{ width: "auto", height: "auto" }}
+                ></Image>
               </div>
               <div className="flex flex-col">
                 <p className="text-xs">{playoffBye[0]?.nfcSeedLabel}</p>
