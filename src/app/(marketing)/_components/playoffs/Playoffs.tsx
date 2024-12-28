@@ -7,7 +7,6 @@ import trophy from "/public/trophy.png";
 import afcLogo from "/public/afc.svg.png";
 import nfcLogo from "/public/nfc.png";
 import vercel from "/public/vercel.svg";
-import { Skeleton } from "@/components/ui/skeleton";
 import Loading from "./PlayoffsLoading";
 
 interface PlayoffItemValues {
